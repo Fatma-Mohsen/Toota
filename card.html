@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; 
+        background-color:  #d0b3b3; 
+        margin: 0;
+         padding: 20px; }
+        .dd { font-size: 35px;
+             font-style: italic;
+              color: #8e5f73;
+               text-align: center;
+                margin-bottom: 40px; }
+        .main-ct { display: flex;
+             max-width: 1100px;
+              margin: 0 auto; 
+              gap: 30px;
+               flex-wrap: wrap; }
+        .cart-items { flex: 2; min-width: 350px; }
+        .it { display: flex;
+             align-items: center;
+              background: white;
+               padding: 20px;
+                border-radius: 15px;
+                 margin-bottom: 20px; 
+                 box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .it img { width: 80px;
+             height: 80px; 
+             border-radius: 12px;
+              object-fit: cover; }
+        .it-info { flex: 1;
+             margin-left: 20px; }
+        .it-info h3 { margin: 0; 
+            font-size: 18px; 
+            color: #444; }
+        .it-info p { margin: 5px 0; 
+            color: #8e5f73; 
+            font-weight: bold; }
+        .del-btn { 
+            background: transparent;
+             color: #888; border: none; 
+             cursor: pointer; font-size: 20px;
+              transition: 0.3s; }
+        .del-btn:hover { color: #cc0000; }
+        .summary-box { 
+            flex: 1;
+             min-width: 300px;
+              background: white; 
+              padding: 30px; 
+              border-radius: 20px;
+               box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+               height: fit-content; }
+        .total-row {
+            border-top: 2px solid #fcfafb;
+             padding-top: 20px;
+              margin-top: 20px;
+               font-weight: bold; 
+               color: #8c6576;
+                font-size: 22px; 
+                display: flex; 
+                justify-content: space-between; }
+        .btn 
+        { display: block; 
+            width: 100%;
+             background-color: #8c6576; 
+             color: white;
+              text-align: center; 
+             padding: 18px; 
+             text-decoration: none;
+              border-radius: 35px;
+               margin-top: 30px;
+                font-weight: bold; 
+                border: none; 
+                cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1 class="dd">Your Shopping Cart</h1>
+
+    <div class="main-ct">
+        <div id="cartList" class="cart-items">
+            </div>
+
+        <div class="summary-box">
+            <h2>Cart Total</h2>
+            <div class="total-row">
+                <span>Total</span>
+                <span id="totalPrice">0 EGP</span>
+            </div>
+            <button class="btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script>
+    function displayCart() {
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        let cartList = document.getElementById('cartList');
+        let total = 0;
+
+        if (!cartList) return;
+
+        if (cart.length === 0) {
+            cartList.innerHTML = "<h3>Your cart is empty</h3>";
+            document.getElementById('totalPrice').innerText = "0 EGP";
+            return;
+        }
+
+        cartList.innerHTML = "";
+        cart.forEach((item, index) => {
+            let priceValue = parseInt(item.calculationPrice || item.price || 0);
+            total += priceValue;
+
+            cartList.innerHTML += `
+                <div class="it">
+                    <img src="${item.image}">
+                    <div class="it-info">
+                        <h3>${item.name}</h3>
+                        <p>${item.displayPrice || item.price + " EGP"}</p>
+                    </div>
+                    <button class="del-btn" onclick="removeItem(${index})">🗑️</button>
+                </div>
+            `;
+        });
+        document.getElementById('totalPrice').innerText = total + " EGP";
+    }
+
+    function removeItem(index) {
+        let cart = JSON.parse(localStorage.getItem('myCart'));
+        cart.splice(index, 1);
+        localStorage.setItem('myCart', JSON.stringify(cart));
+        displayCart();
+    }
+
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.innerText && e.target.innerText.includes('Proceed to Checkout')) {
+            let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+            if (cart.length > 0) {
+                alert("Thank you! Your booking has been completed successfully. We look forward to seeing you again!");
+                localStorage.removeItem('myCart');
+                displayCart();
+            } else {
+                alert("Your cart is empty!");
+            }
+        }
+    });
+
+    displayCart();
+</script>
+</body>
+</html>

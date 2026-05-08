@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FASHONISTA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #d0b3b3;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dd {
+            font-size: 35px;
+            font-style: italic;
+            color: #8e5f73;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .top {
+            font-size: 1.1rem;
+            color: #565050;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .ct {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 95%;
+            max-width: 1000px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+
+        .cd {
+            width: calc(45% - 15px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cd:hover {
+            transform: translateY(-5px);
+        }
+
+        .cd img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #8e5f73;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cd p {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #8e5f73;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-style: normal;
+        }
+
+        hr {
+            width: 80%;
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="dd">Discover your unique style</h1>
+    <hr>
+    <h1 class="top">Explore our collections</h1>
+
+    <div class="ct">
+        <div class="cd">
+            <a href="dress.html">
+                <img src="WhatsApp Image 2026-03-07 at 2.40.05 AM.jpeg">
+            </a>
+            <p>Dresses</p>
+        </div>
+
+        <div class="cd">
+            <a href="t-shirts.html">
+                <img src="WhatsApp Image 2026-03-07 at 2.57.28 AM.jpeg">
+            </a>
+            <p>T-shirts</p>
+        </div>
+
+        <div class="cd">
+            <a href="jeans.html">
+                <img src="WhatsApp Image 2026-03-07 at 2.59.56 AM (1).jpeg">
+            </a>
+            <p>Jeans</p>
+        </div>
+
+        <div class="cd">
+            <a href="bags.html">
+                <img src="WhatsApp Image 2026-03-06 at 10.15.59 PM.jpeg">
+            </a>
+            <p>Bags</p>
+        </div>
+
+        <div class="cd">
+            <a href="shoes.html">
+                <img src="WhatsApp Image 2026-03-09 at 1.50.40 AM (2).jpeg">
+            </a>
+            <p>Shoes</p>
+        </div>
+
+        <div class="cd">
+            <a href="perfumes.html">
+                <img src="WhatsApp Image 2026-04-17 at 4.29.27 PM.jpeg">
+            </a>
+            <p>Perfumes</p>
+        </div>
+    </div>
+</body>
+</html>

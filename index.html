@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #d0b3b3;
+            margin: 0;
+            padding: 20px;
+        }
+        .welcome {
+            width: 90%;
+            max-width: 800px;
+            background:white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin:0 auto 20px auto;
+            border: 1px solid #eee;
+            display: block;
+        }
+
+        .rt {
+            font-size: 35px;
+            font-style: italic;
+            color: #8e5f73;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .na {
+             margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            width: fit-content;
+            gap: 20px;
+            background-color: #8c6576;
+            padding: 10px 40px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .na a {
+            text-decoration: none;
+            color: #ce90ab;
+            font-weight: 600;
+            transition: 0.3s;
+            padding: 8px 15px;
+        }
+
+        .na a:hover {
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+        }
+        .na a.ac
+        {
+            border-bottom: 3px solid white;
+            padding-bottom: 5px;
+        }
+
+        .tr {
+            width: 90%;
+            max-width: 1000px;
+            font-size: 24px;
+            color: #8e5f73;
+            border-left: 5px solid #8e5f73;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 95%;
+            max-width: 1100px;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .category-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #8e5f73;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-item p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #8e5f73;
+            font-size: 18px;
+        }
+        .ctr {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: calc(45% - 10px);
+            max-width: 300px;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #eee;
+        }
+
+        .card figcaption {
+            margin-top: 15px;
+            color: #8f808a;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .card del {
+            color: #cc0000;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 50px;
+            color: white;
+            background-color: #8e5f73;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6d3263;
+            transform: scale(1.05);
+        }
+
+        figure { margin: 0; }
+        .sc {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #8c6576;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.sc:hover {
+    transform: scale(1.1);
+    background-color: #6d3263;
+}
+
+
+#cc {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ffb6c1;
+    color: #8c6576;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+}
+    </style>
+</head>
+<body>
+    <div class="welcome">
+        <h1 class="rt">Welcome to Fashion Store</h1>
+    </div>
+ <div class="na">
+        <a href="index.html" class="ac">All</a>
+        <a href="home.html" class="ac">Sections</a>
+        <a href="contact us.html" class="ac">Contact Us</a>
+        <a href="about us.html" class="ac">About Us</a>
+    </div>
+    <h2 class="tr">We Offer :</h2>
+ 
+    <div class="categories">
+        <div class="category-item">
+            <a href="dress.html">
+            <img src="WhatsApp Image 2026-03-07 at 2.40.05 AM.jpeg">
+            </a>
+            <p>Dresses</p>
+        </div>
+        <div class="category-item">
+            <a href="t-shirts.html">
+            <img src="WhatsApp Image 2026-03-07 at 2.57.28 AM.jpeg">
+            </a>
+            <p>T-shirts</p>
+        </div>
+        <div class="category-item">
+            <a href="jeans.html">
+            <img src="WhatsApp Image 2026-03-07 at 2.59.56 AM (1).jpeg">
+            </a>
+            <p>Jeans</p>
+        </div>
+        <div class="category-item">
+            <a href="bags.html">
+            <img src="WhatsApp Image 2026-03-06 at 10.15.59 PM.jpeg">
+            </a>
+            <p>Bags</p>
+        </div>
+        <div class="category-item">
+            <a href="shoes.html">
+            <img src="WhatsApp Image 2026-03-09 at 1.50.40 AM (2).jpeg">
+            </a>
+            <p>Shoes</p>
+        </div>
+        <div class="category-item">
+            <a href="perfumes.html">
+            <img src="WhatsApp Image 2026-04-17 at 4.29.27 PM.jpeg">
+            </a>
+            <p>Perfumes</p>
+        </div>
+    </div>
+    <br>
+    <br>
+<div class="ctr">
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-06 at 10.22.21 PM (1).jpeg">
+            <figcaption><del>3500EGP</del> 2500 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-07 at 2.21.50 AM (1).jpeg">
+            <figcaption><del>900EGP</del> 700 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-07 at 2.59.55 AM (1).jpeg">
+            <figcaption><del>900EGP</del> 700 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-07 at 2.59.55 AM (2).jpeg">
+            <figcaption><del>800EGP</del> 650 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-09 at 1.50.39 AM (1).jpeg">
+            <figcaption><del>900EGP</del> 700 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-09 at 1.50.39 AM.jpeg">
+            <figcaption><del>800EGP</del> 650 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+  <figure>
+    <img src="WhatsApp Image 2026-04-17 at 4.58.28 PM (5).jpeg" width="250" height="250">
+    <figcaption> <del>1050EGP</del> 900 EGP</figcaption>
+      <button>ADD TO CARD</button>
+  </figure></div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-06 at 10.15.56 PM.jpeg">
+            <figcaption><del>500EGP</del> 400 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-06 at 10.15.57 PM (1).jpeg">
+            <figcaption><del>450EGP</del> 350 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-06 at 10.15.57 PM (2).jpeg">
+            <figcaption><del>300EGP</del> 250 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-06 at 10.15.57 PM (3).jpeg">
+            <figcaption><del>320EGP</del> 250 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-06 at 10.15.57 PM (4).jpeg">
+            <figcaption><del>600EGP</del> 460 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-07 at 2.21.50 AM (3).jpeg">
+            <figcaption><del>1000EGP</del> 900 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+   <figure>
+    <img src="WhatsApp Image 2026-04-17 at 4.29.27 PM (1).jpeg" width="250" height="250">
+    <figcaption> <del>900EGP</del> 800 EGP</figcaption>
+  <button>ADD TO CARD</button>
+  </figure></div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-07 at 2.21.50 AM (4).jpeg">
+            <figcaption><del>400EGP</del> 300 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-06 at 10.22.21 PM (2).jpeg">
+            <figcaption><del>2500EGP</del> 1700 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="WhatsApp Image 2026-03-06 at 10.22.21 PM.jpeg">
+            <figcaption><del>4500EGP</del> 3700 EGP</figcaption>
+            <button>ADD TO CART</button>
+        </figure>
+    </div>
+    <div class="card">
+  <figure>
+    <img src="WhatsApp Image 2026-03-07 at 2.21.51 AM (5).jpeg" width="250" height="250">
+    <figcaption> <del>550EGP</del> 500 EGP</figcaption>
+  <button>ADD TO CARD</button>
+  </figure></div>
+  <div class="card">
+  <figure>
+    <img src="WhatsApp Image 2026-03-07 at 2.21.51 AM.jpeg" width="250" height="250">
+    <figcaption> <del>1000EGP</del> 800 EGP</figcaption>
+  <button>ADD TO CARD</button>
+  </figure></div>
+  </div>
+  <a href="card.html" class="sc">
+    🛒 <span id="cc">0</span>
+</a>
+<script>
+    setInterval(function() {
+        
+        let answer = prompt("Did you find what you looking for? If no, what exactly do you need?");
+        
+        
+        if (answer !== null && answer.trim() !== "") {
+            alert("We will provide " + answer + " for you soon!");
+        }
+    }, 300000);
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        const countElement = document.getElementById('cc');
+        if (countElement) {
+            countElement.innerText = cart.length;
+        }
+    }
+    updateCartCount();
+
+    document.querySelectorAll('button').forEach(btn => {
+        if (btn.innerText.includes('ADD TO CART') || btn.innerText.includes('ADD TO CARD')) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const card = this.closest('.card') || this.closest('figure');
+                if (!card) return;
+
+                const img = card.querySelector('img');
+                const info = card.querySelector('figcaption');
+
+                let displayHTML = info ? info.innerHTML : 'Price not found';
+                let textContent = info ? info.innerText : '0';
+                
+                let prices = textContent.match(/\d+/g);
+                let mathPrice = prices ? prices[prices.length - 1] : '0';
+
+                const product = {
+                    name: "Fashion Item",
+                    displayPrice: displayHTML,
+                    calculationPrice: mathPrice,
+                    image: img ? img.getAttribute('src') : ''
+                };
+
+                let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+                cart.push(product);
+                localStorage.setItem('myCart', JSON.stringify(cart));
+                updateCartCount();
+                console.log("Item added to cart!");
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<html>
+    <head>
+        <style>
+            body
+            {
+                background-color: #867476;
+                line-height: 1.6;
+            }
+            .contact-info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 400px;
+    margin: 20px auto;
+    border-left: 5px solid #ffb6c1;
+    font-family: Arial, sans-serif;
+}
+
+           .card h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    font-style: italic;
+}
+
+.item {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item strong {
+    color: #ffb6c1;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.item span {
+    color: rgb(205, 190, 202);
+    font-size: 1.1rem;
+    margin-top: 3px;
+}
+            h1
+            {
+                font-style: italic;
+                font-weight: bold;
+                color: #444;
+                margin-bottom: 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+            }
+            .cat
+            {
+                background-color:rgb(151, 137, 148);
+                width:350px;
+                margin:50px auto;
+                padding:30px;
+                border-radius:15px;
+                box-shadow:0 10px 25px;
+            }
+            .cot
+            {
+                margin-bottom:15px ;
+            }
+            .cot label
+            {
+                display: block;
+                 margin-bottom:5px;
+                 color: #555;
+                 font-size: 14px;
+            }
+            .cot input
+            {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                box-sizing: border-box;
+                outline:none;
+                transition:.3s;
+            }
+            .cc
+            {
+                width: fit-content;
+                padding: 8px 20px;
+                background-color: #d0b3b3;
+                border: none;
+                border-radius: 20px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background 0.3s;
+                display: block;
+                margin-left: 0;
+                margin-right: auto;
+            }
+            .cat h1
+            {
+                text-align: center;
+                color: #ffb6c1;
+                margin-bottom: 20px;
+                text-transform: capitalize;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="card">
+    <h3>Contact Information</h3>
+    <div class="item">
+        <strong>Phone:</strong>
+        <span>+20 102 352 847</span>
+    </div>
+    <div class="item">
+        <strong>Email:</strong>
+        <span>fashonista@gmail.com</span>
+    </div>
+    <div class="item">
+        <strong>Address:</strong>
+        <span>Menofia, Egypt</span>
+    </div>
+</div>
+<div class="cat">
+    <h1>you can also send to us</h1>                     
+  <form>
+    <div class="cot">
+     <label>First name</label>
+     <input type="text" required>
+     </div>
+     <div class="cot">
+     <label>Last name</label>
+     <input type="text" required>
+     </div>
+     <div class="cot">
+     <label>Your Address</label>
+     <input type="text" required>
+     </div>
+     <div class="cot">
+     <label>Email</label>
+     <input type="email" required> 
+     </div>
+     <div class="cc">                          
+     <input type="submit">
+     </div>
+ </form>
+ </div>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const submitBtn = document.querySelector('input[type="submit"]');
+
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        const requiredInputs = form.querySelectorAll('input[required]');
+        let firstEmptyInput = null;
+        for (let input of requiredInputs) {
+            if (!input.value.trim()) {
+                firstEmptyInput = input;
+                break; 
+            }
+        }
+        if (firstEmptyInput) {
+            alert("Please fill out all required fields."); 
+            firstEmptyInput.focus(); 
+            return; 
+        }
+        submitBtn.value = "Sending data... Please wait";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+
+        setTimeout(function() {
+            alert("The operation has been completed successfully!");
+            submitBtn.value = "Submit";
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = "1";
+            form.reset();
+        }, 2000);
+    };
+});
+</script>
+    </body>
+</html>
